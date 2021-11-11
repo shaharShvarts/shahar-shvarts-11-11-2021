@@ -1,0 +1,19 @@
+GET http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=X4vSjMaoPYYED4lp2JgzZTv03czlJGp7&q=Tallinn
+
+###
+
+GET http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=X4vSjMaoPYYED4lp2JgzZTv03czlJGp7&qTallinn
+
+
+###
+
+GET http://www.accuweather.com/en/ee/tallinn/127964/current-weather/127964?lang=en-us
+
+######
+http://dataservice.accuweather.com/imagery/v1/maps/radsat/480x480/127964
+
+###
+http://dataservice.accuweather.com/imagery/v1/maps/radsat/1024x1024/127964?apikey=X4vSjMaoPYYED4lp2JgzZTv03czlJGp7
+
+###
+http://api.accuweather.com/imagery/v1/maps/radsat/1024x1024/335315?apikey=X4vSjMaoPYYED4lp2JgzZTv03czlJGp7&language=es
