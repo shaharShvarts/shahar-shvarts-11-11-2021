@@ -11,7 +11,7 @@ const FavoriteCard = ({ favorite }) => {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_KEY;
-    const baseUrl = "http://dataservice.accuweather.com/";
+    const baseUrl = "https://dataservice.accuweather.com/";
     const currentConditions = "currentconditions/v1/";
     // console.log(favorite);
     const fetchData = async () => {

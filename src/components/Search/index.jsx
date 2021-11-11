@@ -29,7 +29,7 @@ const Search = () => {
   const dispatchFunction = async (city) => {
     if (!city) return;
     const apiKey = process.env.REACT_APP_KEY;
-    const baseUrl = "http://dataservice.accuweather.com/";
+    const baseUrl = "https://dataservice.accuweather.com/";
     const autocomplete = "locations/v1/cities/autocomplete";
     const { data } = await axios(
       `${baseUrl}${autocomplete}?apikey=${apiKey}&q=${city}`

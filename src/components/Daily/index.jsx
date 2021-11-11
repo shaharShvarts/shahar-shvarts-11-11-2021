@@ -9,7 +9,7 @@ const Daily = () => {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_KEY;
-    const baseUrl = "http://dataservice.accuweather.com/";
+    const baseUrl = "https://dataservice.accuweather.com/";
     const daily5Day = "forecasts/v1/daily/5day/";
 
     const fetchData = async () => {
