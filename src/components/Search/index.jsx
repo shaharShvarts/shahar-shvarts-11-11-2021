@@ -16,8 +16,18 @@ const Search = () => {
 
   // Typing in english only
   const handleTyping = (e) => {
-    const input = e.target.value;
-    setInput(input.replace(/[^A-Za-z\s]/g, "*"));
+    if (e.target.value.length === 0) {
+      setInput("");
+      return;
+    }
+
+    const validInput = /[a-zA-Z]+$/.test(e.target.value);
+
+    if (!validInput) {
+      notify("English letters only");
+      return;
+    }
+    setInput(e.target.value);
   };
 
   const handleKeyPress = (e) => {
