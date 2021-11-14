@@ -2,8 +2,8 @@
   "name": "weather-app",
   "version": "0.1.0",
   "engines": {
-    "node": "12.16.1",
-    "npm": "6.13.4"
+    "node": "^12.16.1",
+    "npm": "^6.13.4"
   },
   "private": true,
   "dependencies": {
