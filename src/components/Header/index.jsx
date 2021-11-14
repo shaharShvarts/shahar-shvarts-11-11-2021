@@ -12,6 +12,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Title className="title">Herolo Weather Task</Title>
+
       <Nav>
         <StyledLink
           to="/"
