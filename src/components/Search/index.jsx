@@ -9,8 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Search = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
+  const [cities, setCities] = useState([]);
   const searchRef = useRef("");
-  // const cars = useRef("");
+  const citiesRef = useRef("");
 
   const notify = (err) => toast(err, { type: "info", theme: "dark" });
 
@@ -21,13 +22,16 @@ const Search = () => {
       return;
     }
 
-    const validInput = /[a-zA-Z]+$/.test(e.target.value);
+    const validInput = /[a-zA-Z0-9- ]+$/.test(e.target.value);
 
     if (!validInput) {
       notify("English letters only");
       return;
     }
+
     setInput(e.target.value);
+
+    dispatchFunction(searchRef.current.value);
   };
 
   const handleKeyPress = (e) => {
@@ -35,7 +39,19 @@ const Search = () => {
   };
 
   const handleClick = () => {
-    dispatchFunction(searchRef.current.value);
+    for (let city of Array.from(citiesRef.current.options)) {
+      if (city.value === searchRef.current.value) {
+        dispatch({
+          type: "setWeatherByCity",
+          payload: {
+            cityName: city.value,
+            locationCode: city.dataset.id,
+          },
+        });
+
+        break;
+      }
+    }
   };
 
   const dispatchFunction = async (city) => {
@@ -43,9 +59,9 @@ const Search = () => {
     const apiKey = process.env.REACT_APP_KEY;
     const baseUrl = "https://dataservice.accuweather.com/";
     const autocomplete = "locations/v1/cities/autocomplete";
-    let result;
+
     try {
-      result = await axios(
+      const result = await axios(
         `${baseUrl}${autocomplete}?apikey=${apiKey}&q=${city}`
       );
 
@@ -54,13 +70,14 @@ const Search = () => {
         return;
       }
 
-      dispatch({
-        type: "getWeatherByCity",
-        payload: {
-          cityName: result.data[0].LocalizedName,
-          locationCode: result.data[0].Key,
-        },
+      const citiesData = result.data.map((city) => {
+        return {
+          key: city.Key,
+          localizedName: city.LocalizedName,
+        };
       });
+
+      setCities(citiesData);
     } catch (error) {
       console.log(error.message);
     }
@@ -75,9 +92,17 @@ const Search = () => {
           ref={searchRef}
           value={input}
           type="text"
+          list="cities"
           onInput={handleTyping}
           onKeyPress={handleKeyPress}
+          onChange={handleClick}
         />
+        <datalist id="cities" ref={citiesRef}>
+          {cities &&
+            cities.map(({ localizedName, key }) => (
+              <option key={key} value={localizedName} data-id={key}></option>
+            ))}
+        </datalist>
       </SearchBox>
     </>
   );

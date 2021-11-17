@@ -8,7 +8,7 @@ const initialState = {
 
 const FavoritesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "getWeatherByCity":
+    case "setWeatherByCity":
       return {
         ...state,
         cityName: action.payload.cityName,
