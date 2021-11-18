@@ -8,10 +8,22 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 20px;
   flex-wrap: wrap;
+
+  @media only screen and (max-width: 768px) {
+    gap: 20px;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.p`
   font-weight: 700;
+`;
+
+export const Controllers = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
 `;
 
 export const Nav = styled.nav`

@@ -26,6 +26,11 @@ export const WeatherHeader = styled.section`
   display: flex;
   align-items: center;
 
+  @media only screen and (max-width: 768px) {
+    gap: 20px;
+    flex-direction: column;
+  }
+
   & button {
     border: 0;
     background-color: #51b7cb;
@@ -42,6 +47,10 @@ export const WeatherNow = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: auto;
+
+  @media only screen and (max-width: 768px) {
+    margin-right: 0;
+  }
 
   & h2 {
     display: flex;

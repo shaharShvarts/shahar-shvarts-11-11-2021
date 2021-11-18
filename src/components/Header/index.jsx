@@ -3,7 +3,13 @@ import { useLocation } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { BsMoonStarsFill, BsGeoAlt } from "react-icons/bs";
-import { StyledHeader, Title, Nav, StyledLink } from "./StyledHeader";
+import {
+  StyledHeader,
+  Title,
+  Controllers,
+  Nav,
+  StyledLink,
+} from "./StyledHeader";
 
 import axios from "axios";
 
@@ -75,8 +81,10 @@ const Header = ({ setTheme }) => {
   return (
     <StyledHeader>
       <Title className="title">Herolo Weather Task</Title>
-      <BsGeoAlt onClick={setGeolocation} />
-      {darkMode}
+      <Controllers>
+        <BsGeoAlt onClick={setGeolocation} />
+        {darkMode}
+      </Controllers>
       <Nav>
         <StyledLink
           to="/"
