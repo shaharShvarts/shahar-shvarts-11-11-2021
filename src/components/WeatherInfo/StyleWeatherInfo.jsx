@@ -28,7 +28,7 @@ export const WeatherHeader = styled.section`
 
   & button {
     border: 0;
-    background: #c8e5f1;
+    background-color: #51b7cb;
     padding: 0.2rem 0.5rem;
     margin-left: 5px;
     box-shadow: 0 1px 1px #666;
@@ -42,4 +42,10 @@ export const WeatherNow = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: auto;
+
+  & h2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 `;

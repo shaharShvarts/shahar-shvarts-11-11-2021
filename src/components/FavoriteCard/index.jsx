@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import StyledFavoriteCard from "./StyledFavoriteCard";
+import { RiCelsiusLine } from "react-icons/ri";
 
 const FavoriteCard = ({ favorite }) => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const FavoriteCard = ({ favorite }) => {
     const locationCode = e.currentTarget.id;
 
     dispatch({
-      type: "getWeatherByCity",
+      type: "setWeatherByCity",
       payload: { cityName: favorite.cityName, locationCode },
     });
   };
@@ -47,7 +48,9 @@ const FavoriteCard = ({ favorite }) => {
     >
       <div>
         <h2>{favorite.cityName}</h2>
-        <h2>{state?.Temperature?.Metric?.Value} ° c</h2>
+        <h2>
+          {state?.Temperature?.Metric?.Value} <RiCelsiusLine />
+        </h2>
       </div>
       <img
         src={`https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png`}

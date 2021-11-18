@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import StyledDaily from "./StyledDaily";
+import { RiCelsiusLine } from "react-icons/ri";
 
 const Daily = () => {
   const { locationCode } = useSelector((state) => state);
@@ -33,7 +34,9 @@ const Daily = () => {
                 weekday: "short",
               })}
             </div>
-            <div>{day.Temperature.Maximum.Value}° c</div>
+            <div>
+              {day.Temperature.Maximum.Value} <RiCelsiusLine />
+            </div>
           </div>
         ))}
     </StyledDaily>

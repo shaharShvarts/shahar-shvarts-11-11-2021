@@ -8,10 +8,13 @@ export const StyledDaily = styled.div`
   & > div {
     border: 1px solid #ccc;
     padding: 1rem;
+  }
 
-    & :nth-child(2) {
-      font-size: 0.5rem;
-    }
+  & > div > div {
+    align-items: end;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
   }
 `;
 

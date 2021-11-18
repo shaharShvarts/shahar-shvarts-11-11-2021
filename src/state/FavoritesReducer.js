@@ -1,7 +1,9 @@
+const geoposition = JSON.parse(localStorage.getItem("geoposition"));
+
 const initialState = {
-  cityName: "Tel Aviv",
+  cityName: geoposition?.cityName || "Tel Aviv",
   currentTemp: 0,
-  locationCode: "215854",
+  locationCode: geoposition?.locationCode || "215854",
   weatherText: "",
   weatherIcon: "01",
 };

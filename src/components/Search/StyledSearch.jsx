@@ -10,6 +10,7 @@ export const SearchBox = styled.div`
     position: absolute;
     left: 5px;
     cursor: pointer;
+    color: #000;
   }
 `;
 

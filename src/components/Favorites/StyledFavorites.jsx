@@ -6,6 +6,11 @@ const StyledFavorites = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 20px;
+  background-color: ${({ theme }) => theme.backgroundColor};
+
+  & a {
+    color: ${({ theme }) => theme.color};
+  }
 `;
 
 export default StyledFavorites;

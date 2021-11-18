@@ -2,13 +2,14 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { WeatherWrap, WeatherHeader, WeatherNow } from "./StyleWeatherInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-
+import { RiCelsiusLine } from "react-icons/ri";
 import axios from "axios";
 import Daily from "../Daily";
 
 const WeatherInfo = () => {
   const [favorites, setFavorites] = useState([]);
   const dispatch = useDispatch();
+
   const { locationCode, currentTemp, cityName, weatherText, weatherIcon } =
     useSelector((state) => state);
   const isFavorite = favorites.some(
@@ -73,7 +74,9 @@ const WeatherInfo = () => {
           />
           <div>
             <h2>{cityName}</h2>
-            <h3>{currentTemp}° c</h3>
+            <h2>
+              {currentTemp} {<RiCelsiusLine />}
+            </h2>
           </div>
         </WeatherNow>
         {favorites && isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
